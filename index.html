@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnification Selector</title>
+    <!-- Bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Option 1: Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <style>
+        /* image down scrollbar */
+
+        .main-scroll-div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            border: 2px solid red;
+        }
+
+        .cover {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .scroll-images {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+            position: relative;
+
+        }
+
+        .child {
+            min-width: 100%;
+            height: 550px;
+            cursor: ponter;
+            border: 1px solid white;
+            overflow: hidden;
+        }
+
+        .child-img {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* inject image in slider */
+        /* #image-slider {
+            width: 500px;
+            height: 300px;
+            background-color: #eee;
+        } */
+
+        /* Automatic image slider */
+        /* .slidercontainer {
+            max-width: 100%;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slider-image {
+            display: block;
+            max-width: 100%;
+            max-height: 550px;
+            object-fit: cover;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: red;
+        } */
+    </style>
+
+</head>
+
+<body>
+    <div class="container  m-5">
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="magnification" class="form-label">What is the magnification required?</label>
+                <select id="magnification" class="form-select">
+                    <option value="100">100X</option>
+                    <option value="200">200X</option>
+                    <option value="500">500X</option>
+                </select>
+            </div>
+            <!-- Using radio button -->
+            <div class="col-12">
+                <label for="objectivelense" class="form-label">Eyepiece </label>
+                <input type="radio" checked disabled>10X</input>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label">Objective Lens</label>
+                <div>
+                    <input type="radio" id="lense10" name="objectiveLense" value="10" class="form-check-input">
+                    <label for="lense10" class="form-check-label">10X</label>
+                </div>
+                <div>
+                    <input type="radio" id="lense20" name="objectiveLense" value="20" class="form-check-input">
+                    <label for="lense20" class="form-check-label">20X</label>
+                </div>
+                <div>
+                    <input type="radio" id="lense50" name="objectiveLense" value="50" class="form-check-input">
+                    <label for="lense50" class="form-check-label">50X</label>
+                </div>
+            </div>
+
+
+
+
+            <!-- Using dropdown menu -->
+            <!-- <div class="col-md-6">
+                <label for="Eyepiece" class="form-label">Eyepiece</label>
+                <select id="Eyepiece" class="form-select">
+                    <option value="10" selected>10X</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="objectivelense" class="form-label">Objective Lens</label>
+                <select id="objectivelense" class="form-select">
+                    <option value="10">10X</option>
+                    <option value="20">20X</option>
+                    <option value="50">50X</option>
+                </select>
+            </div> -->
+
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- Image with down scrollebar -->
+    <div class="container mb-3">
+        <div class="main-scroll-div">
+            <div class="cover">
+                <div class="scroll-images">
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652025058.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652028025.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652030710.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652032791.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652034712.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652036768.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652039386.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652041593.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652043781.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652046040.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652048374.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652050673.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652052890.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652056578.jpg" class="slide"
+                            alt="image">
+                    </div>
+                    <div class="child"><img class="child-img" src="images\FB_IMG_1677652062665.jpg" class="slide"
+                            alt="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Inject image based on selected value -->
+    <!-- <div id="image-slider"></div> -->
+
+    <!-- Image automatic slider  -->
+    <!-- <div class="slidercontainer m-5">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images\FB_IMG_1677652025058.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652028025.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652030710.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652032791.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652034712.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652036768.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652039386.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652041593.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652043781.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652046040.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652048374.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652050673.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652052890.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652056578.jpg" class="slider-image" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\FB_IMG_1677652062665.jpg" class="slider-image" alt="image">
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+ -->
+
+
+
+    <!-- image inject using values -->
+    <!-- <script>
+        const magnificationSelect = document.getElementById('magnification');
+        const objectiveSelect = document.getElementById('objective');
+        const imageSlider = document.getElementById('image-slider');
+
+        magnificationSelect.addEventListener('change', () => {
+            const magnification = magnificationSelect.value;
+            const objective = objectiveSelect.value;
+
+            if (magnification === '100' && objective === '10') {
+                // set image for magnification 100 and objective 10
+                imageSlider.style.backgroundImage = 'url(images\FB_IMG_1677652048374.jpg)';
+            } else if (magnification === '200' && objective === '20') {
+                // set image for magnification 200 and objective 20
+                imageSlider.style.backgroundImage = 'url(images\FB_IMG_1677652056578.jpg)';
+            } else {
+                // set default image
+                imageSlider.style.backgroundImage = 'url(path/to/default-image.jpg)';
+            }
+        });
+
+        objectiveSelect.addEventListener('change', () => {
+            const magnification = magnificationSelect.value;
+            const objective = objectiveSelect.value;
+
+            if (magnification === '100' && objective === '10') {
+                // set image for magnification 100 and objective 10
+                imageSlider.style.backgroundImage = 'url(images\FB_IMG_1677652056578.jpg)';
+            } else if (magnification === '200' && objective === '20') {
+                // set image for magnification 200 and objective 20
+                imageSlider.style.backgroundImage = 'url(images\FB_IMG_1677652048374.jpg)';
+            } else {
+                // set default image
+                imageSlider.style.backgroundImage = 'url(path/to/default-image.jpg)';
+            }
+        });
+    </script> -->
+
+
+
+    <!-- Let user select using radio button -->
+    <script>
+        const form = document.querySelector('form');
+        const magnificationSelect = document.querySelector('#magnification');
+        const objectiveRadios = document.querySelectorAll('input[name="objectiveLense"]');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const selectedMagnification = parseInt(magnificationSelect.value);
+            let selectedObjective;
+
+            objectiveRadios.forEach((radio) => {
+                if (radio.checked) {
+                    selectedObjective = parseInt(radio.value);
+                }
+            });
+
+            if (selectedMagnification === 100 && selectedObjective === 10) {
+                alert('Magnification and objective lens are compatible');
+            } else if (selectedMagnification === 200 && selectedObjective === 20) {
+                alert('Magnification and objective lens are compatible');
+            } else if (selectedMagnification === 500 && selectedObjective === 50) {
+                alert('Magnification and objective lens are compatible');
+            } else {
+                alert('Error: Magnification and objective lens are not compatible');
+            }
+        });
+    </script>
+
+
+    <!--  let User select using dropdown   ( Uncomment dropdown menu code from html )-->
+
+    <!-- <script>
+        const form = document.querySelector('form');
+        const magnificationSelect = document.querySelector('#magnification');
+        const objectiveSelect = document.querySelector('#objectivelense');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const selectedMagnification = parseInt(magnificationSelect.value);
+            const selectedObjective = parseInt(objectiveSelect.value);
+
+            if (selectedMagnification === 100 && selectedObjective === 10) {
+                alert('Magnification and objective lens are compatible');
+            } else if (selectedMagnification === 200 && selectedObjective === 20) {
+                alert('Magnification and objective lens are compatible');
+            } else if (selectedMagnification === 500 && selectedObjective === 50) {
+                alert('Magnification and objective lens are compatible');
+            } else {
+                alert('Error: Magnification and objective lens are not compatible');
+            }
+        });
+    </script> -->
+
+    <!--  auto selecet using dropdown method    ( Uncomment dropdown menu code from html )  -->
+
+    <!-- <script>
+        const magnificationSelect = document.getElementById("magnification");
+        const objectiveSelect = document.getElementById("objectivelense");
+
+        magnificationSelect.addEventListener("change", function () {
+            if (magnificationSelect.value == "100") {
+                objectiveSelect.value = "10";
+            } else if (magnificationSelect.value == "200") {
+                objectiveSelect.value = "20";
+            } else if (magnificationSelect.value == "500") {
+                objectiveSelect.value = "50";
+            } else {
+                alert("Wrong magnification selected");
+            }
+        });
+
+        objectiveSelect.addEventListener("change", function () {
+            const magnificationValue = magnificationSelect.value;
+            const objectiveValue = objectiveSelect.value;
+
+            if (magnificationValue == "100" && objectiveValue != "10") {
+                alert("Wrong objective lens selected");
+                objectiveSelect.value = "10";
+            } else if (magnificationValue == "200" && objectiveValue != "20") {
+                alert("Wrong objective lens selected");
+                objectiveSelect.value = "20";
+            } else if (magnificationValue == "500" && objectiveValue != "50") {
+                alert("Wrong objective lens selected");
+                objectiveSelect.value = "50";
+            }
+        });
+    </script> -->
+</body>
+
+</html>
